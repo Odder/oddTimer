@@ -49,11 +49,43 @@ var sessionNames = {session1: '2x2x2',
 			
 **/
 
+(function(){
+    /*
+     * this swallows backspace keys on any non-input element.
+     * stops backspace -> back
+     */
+    var rx = /SELECT|TEXTAREA/i;
+
+    document.bind("keydown keypress", function(e){
+        if( e.which == 8 ){ // 8 == backspace
+            if(!rx.test(e.target.tagName) || e.target.disabled || e.target.readOnly ){
+                e.preventDefault();
+            }
+        }
+    });
+});
+
 // shortcut functions
 function El(el) {return document.getElementById(el);}
 
 // global listeners
-window.onkeydown = function(event) {checkKey(event.keyCode, 1);};
+window.onkeydown = function(event) {
+	if (event.keyCode == 8 || event.keyCode == 46) {
+		if(event.keyCode == 8) {
+			if (El("showTime").value.length > 1) {
+				El("showTime").value = El("showTime").value.substring(0,El("showTime").value.length -1); 
+			}
+			else {
+				El("showTime").value = "0.00";
+			}
+		}
+		else {
+			El("showTime").value = "0.00";
+		}
+		event.preventDefault();
+	}
+	checkKey(event.keyCode, 1);
+};
 window.onkeyup = function(event) {checkKey(event.keyCode, 0); formatPretty();};
 window.onblur = function(event) {El("blurFocus").style.visibility =  "visible"; console.log("yolo");};
 window.onfocus = function(event) {El("blurFocus").style.visibility = "hidden";};
@@ -78,9 +110,9 @@ function initialiseLocalStorage() {
 
 /*** TIMER FUNCTIONS ***/
 function checkKey(key, action) {
-	if (action == 0 && timerState == 0 && (El("showTime").value == pretty(times[times.length - 1]) || El("showTime").value == ""|| El("showTime").value == "0.00") && ((key > 47  && key < 58) || (key > 95 && key < 106))) { 
-		El("showTime").focus();
-		El("showTime").value = String.fromCharCode(key);
+	if (action == 0 && timerState == 0 && ((key > 47  && key < 58) || (key > 95 && key < 106))) {
+		if (El("showTime").value == pretty(times[times.length - 1]) || El("showTime").value == "0.00") { El("showTime").value = ""; }
+		El("showTime").value += String.fromCharCode(key);
 	}
 	if (action == 0) {clearTimeout(timerDelay); }
 	if (key == 32 &&  timerState == 0 && action == 1) {prepareTimer(); }
@@ -505,7 +537,7 @@ function prettyPrint(set) {
 }
 
 function show00(num) {
-	return num > 9 ? "" + num: "0" + num;
+	return num > 9 ? "" + num : "0" + num;
 }
 function ugly(num) {
 	seconds = num.split(".");

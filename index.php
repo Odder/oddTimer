@@ -18,7 +18,7 @@
 	<body>
 		<center>
 			<div id="blurFocus"> BLUR.... Click anywhere to focus!</div>
-			<input id="showTime" value="0.00" class="timerDefault" />
+			<input id="showTime" value="0.00" class="timerDefault" readonly />
 			<div id="sessionSnippet"></div>
 			<div id="scrambleBox" onclick="hideshowScramble()"></div>
 			<div id="scrambleSelect" onclick="hideshowScramble()"><h3>Select Puzzle:</h3>
