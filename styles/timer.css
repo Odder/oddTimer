@@ -1,0 +1,196 @@
+@font-face {
+    font-family: 'digits';
+    src: url("../graphics/digital.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'scramble';
+    src: url("../graphics/9THYSSEN.TTF") format("truetype");
+}
+
+body {
+	height: 100%;
+	width: 100%;
+	min-height: 500px;
+	background-color: rgb(20,20,20);
+	margin: 0;
+	overflow: hidden;
+	font-family: 'scramble';
+}
+
+#showTime {
+    background-color: transparent;
+    border: 0px solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -80px;
+    margin-left: -300px;
+	font-size: 160px;
+    width: 600px;
+    height: 160px;
+	text-align: center;
+	font-family: digits;
+}
+
+#scrambleSelect {
+	background-color: rgba(255,255,255,0);
+    border: 1px solid;
+	border-radius: 15px 15px;
+    position: absolute;
+    top: -160px;
+    left: 50%;
+    margin-top: -160px;
+    margin-left: -160px;
+	font-size: 20px;
+    width: 320px;
+	text-align: center;
+	transition: 1s all ease-out;
+}
+#scrambleSelectActive {
+	background-color: rgba(160,160,160,1);
+    border: 1px solid;
+	border-radius: 15px 15px;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    margin-left: -160px;
+	font-size: 20px;
+    width: 320px;
+	text-align: center;
+	transition: 1s all;
+}
+
+
+#fullStatsContainer {
+	background-color: rgba(255,255,255,0);
+    border: 1px solid;
+	border-radius: 15px 15px;
+    position: absolute;
+    top: -500px;
+    left: 50%;
+	height: 400px;
+    margin-top: -160px;
+    margin-left: -450px;
+	font-size: 20px;
+    width: 900px;
+	font-size: 15px;
+	transition: 1s all;
+	font-family: consolas;
+	
+}
+#fullStatsContainerActive {
+	background-color: rgba(160,160,160,1);
+    border: 1px solid;
+	border-radius: 15px 15px;
+    position: absolute;
+    top: 200px;
+    left: 50%;
+	height: 400px;
+    margin-left: -450px;
+	font-size: 20px;
+    width: 900px;
+	transition: 1s all;
+	font-size: 15px;
+	padding: 10px;
+	font-family: consolas;
+}
+
+#printStatsBox {
+	background-color: rgba(255,255,255,0.8);
+	float: left;
+	padding: 15px;
+    width: 650px;
+	transition: 1s all;
+	overflow: auto;
+	height: 350px;
+	margin: 10px;
+}
+
+#stats{
+	color: rgb(230,230,230);
+	padding: 10px;
+	width: 200px;
+}
+#sessions{
+	color: rgb(230,230,230);
+	padding: 10px;
+	position: absolute;
+	right: 0px;
+	width: 150px;
+	top: 0px;
+	text-align: right;
+}
+#sessions{
+	color: rgb(230,230,230);
+	padding: 10px;
+	position: absolute;
+	right: 0px;
+	width: 150px;
+	top: 0px;
+	text-align: right;
+}
+#blurFocus {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255,255,255,0.4);
+	font-size: 60px;
+	visibility: hidden;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+#sessionSnippet {
+    background-color: rgba(255,255,255,0.3);
+    border: solid;
+	border-width: 1px 1px 0px 1px;
+	border-radius: 15px 15px 0px 0px;
+	padding: 15px;
+    position: absolute;
+    bottom: 0px;
+	left: 50%;
+	margin-left: -200px;
+	font-size: 30px;
+    width: 400px;
+    height: 90px;
+	text-align: center;
+	overflow: hidden;
+	font-family: 'digits';
+}
+#scrambleBox {
+    background-color: rgba(255,255,255,0.3);
+    border: solid;
+	border-width: 0px 1px 1px 1px;
+	border-radius: 0px 0px 15px 15px;
+	padding: 15px;
+    position: absolute;
+    top: 0px;
+	left: 50%;
+	margin-left: -400px;
+	font-size: 27px;
+    width: 800px;
+    min-height: 30px;
+	text-align: center;
+	font-family: consolas;
+}
+
+.timerPreparing {
+	transition: all 0.3s;
+	color: rgb(250, 250, 30);
+}
+.timerReady {
+	color: rgb(30, 250, 30);
+}
+.timerDefault {
+	color: rgb(200, 200, 200);
+}
+
+.timeSnippet:hover {
+	color: rgb(200, 200, 200);
+}
+.sessionSelect:hover {
+	color: rgb(200, 200, 50);
+}
+
+table { padding: 5px;}
