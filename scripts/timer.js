@@ -49,22 +49,6 @@ var sessionNames = {session1: '2x2x2',
 			
 **/
 
-(function(){
-    /*
-     * this swallows backspace keys on any non-input element.
-     * stops backspace -> back
-     */
-    var rx = /SELECT|TEXTAREA/i;
-
-    document.bind("keydown keypress", function(e){
-        if( e.which == 8 ){ // 8 == backspace
-            if(!rx.test(e.target.tagName) || e.target.disabled || e.target.readOnly ){
-                e.preventDefault();
-            }
-        }
-    });
-});
-
 // shortcut functions
 function El(el) {return document.getElementById(el);}
 
